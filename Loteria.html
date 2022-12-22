@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Número aleatorio</title>
+  <style>
+    /* Estilos para pantallas grandes */
+    @media (min-width: 600px) {
+      #container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    /* Estilos para pantallas pequeñas */
+    @media (max-width: 599px) {
+      #container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+    }
+
+    input[type="text"] {
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <input type="text" pattern="[0-9]*" maxlength="5" oninput="generateNumber()">
+    <div id="result" style="width: 100px; height: 70px;"></div>
+  </div>
+  <div id="mensajeTonto" style="width: 100px; height: 70px;"></div>
+
+  <script>
+    function generateNumber() {
+      // Obtener el valor introducido en el input y la longitud del mismo
+      const input = document.querySelector("input").value;
+      const inputLength = input.length;
+
+      // Generar un número aleatorio y añadirle el valor introducido al final
+      let number = Math.floor(Math.random() * Math.pow(10, 5 - inputLength)) + input;
+
+      // Asegurarse de que el número generado no exceda los 5 caracteres
+      number = number.slice(-5);
+
+      // Mostrar el resultado en el elemento div
+      document.querySelector("#result").innerHTML = number;
+
+      // Comparar el valor introducido y el número aleatorio generado
+      if (input === number) {
+        // Mostrar el mensaje en el elemento div
+        document.querySelector("#mensajeTonto").innerHTML = "emmm... sabes que no tiene mucho sentido verdad?... XD";
+      } else {
+        // Limpiar el contenido del elemento div
+        document.querySelector("#mensajeTonto").innerHTML = "";
+      }
+    }
+  </script>
+</body>
+</html>
