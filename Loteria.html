@@ -8,82 +8,128 @@
             {
                 padding: 0;
                 margin: 0;
+                box-sizing: border-box;
+            }
+            
+            html
+            {
+                display: flex;
             }
 
             body {
-                background-color: #222222;
-
-     
-                width: 700px;
+                background-color:  #ddbb8a;
                 margin-left: auto;
                 margin-right: auto;
+                width: 900px;
             }
             
             h3
             {
                 color: white;
-                margin-top: 20px;
+                margin-top: 200px;
+                margin-bottom: 200px;
+                width: 700px;
+                margin-left: auto;
+                margin-right: auto;
+                text-align: center;
+                font-size: 40px;
+                font-family: 'letraPalabras';
+            }
+            h4
+            {
+                margin-bottom: 40px;
+                color: white;
+                width: 700px;
+                margin-left: auto;
+                margin-right: auto;
+                text-align: center;
+                font-size: 40px;
+                font-family: 'letraPalabras';
+            }
+            
+            .centrado
+            {
+                text-align: center;
+                align-content: center;
+                align-items: center;
+                margin-left: auto;
+                margin-right: auto;
+                vertical-align: central;
+                margin-top: 200px;
             }
 
             /* Clase para el contenedor de input y div con el número generado */
             .box {
                 background-color: darkblue;
-                border: 10px #cc3300 solid;
+                border: 10px #fffc00 solid;
                 border-radius: 10px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                flex-direction: column;
-                margin: 30px;
+                display: inline-block;
+                margin-top: 30px;
                 padding: 20px;
+                width: 900px;
+                height: 1800px;
+                margin-left: auto;
+                margin-right: auto;
             }
 
             #result {
                 position: relative;
-                bottom: 213px;
-                left: 27px;
+                bottom: 1460px;
+                left: 328px;
                 height: 30px;
                 display: inline-block;
                 align-items: center;
                 justify-content: center;
-                font-size: 40px;
+                font-size: 80px;
                 color: black;
-                letter-spacing: 10px;
+                letter-spacing: 17px;
+                font-variant-numeric: tabular-nums;
+                z-index: 999;
+                font-family: 'letraNumeros';
             }
 
             #mensajeTonto {
                 align-items: center;
                 justify-content: center;
-                font-size: 20px;
-                width: 300px;
+                font-size: 60px;
                 margin-top: 30px;
                 color: white;
+                
+            }
+            
+            #boleto
+            {
+                border-radius: 10px;
+                width: 800px;
+                height: 450px;
             }
             
             #logoAdministracion
             {
+                display: inline-block;
                 position: relative;
                 z-index: 999;
-                top: 50px;
-                left: 22px;
-                letter-spacing: 3px;
+                bottom: 1430px;
+                left: 328px;
+                letter-spacing: 18px;
             }
             
             .logoAdm
             {
                 display: inline-block;
-                width: 22px; 
-                height: 25px;
+                width: 53px; 
+                height: 60px;
                 content: url(logoAdministracionLoteria.png);
             }
 
             /* Estilos para el input */
             input[type="number"] {
-                width: auto;
-                height: 50px;
+                width: 250px;
+                height: 100px;
                 border-radius: 5px;
                 border-radius: 10px;
-                font-size: 20px;
+                font-size: 70px;
+                text-align: center;
             }
             
             @media (max-width: 450px) {
@@ -100,27 +146,38 @@
                     font-size: 18px;
                 }
             }
+            
+            @font-face {
+                font-family: 'letraPalabras';
+                src: url('KeepCalm-Medium.ttf') format('truetype');
+            }
+            
+            @font-face {
+                font-family: 'letraNumeros';
+                src: url('LEMONMILK-Medium.otf') format('truetype');
+            }
+
         </style>
     </head>
     <body>
-        <div id="container">
             <!-- Añadir la clase box al contenedor del input y del div -->
             <div class="box">
-                <div id="logoAdministracion">
-                    <div class="logoAdm"></div>
-                    <div class="logoAdm"></div>
-                    <div class="logoAdm"></div>
-                    <div class="logoAdm"></div>
-                    <div class="logoAdm"></div>
-                </div>
-                <img src="boleto.jpg" width="320" height="180" alt="boleto"/>
-                <h3>Introduce la terminacion que deseas</h3>
-                <div id="result"></div>
+                <div class="centrado">
+                    <h4>Genera Numeros para Lorerias</h4>
+                <img id="boleto" src="boleto.jpg" alt="boleto"/>
+                <h3>Introduce la terminacion que deseas mantener en el numero generado aleatoriamente</h3>
                 <input type="number" pattern="[0-9]*" maxlength="5" max="99999" oninput="generateNumber()">
                 <div id="mensajeTonto"></div>
+                </div>
             </div>
-        </div>
-
+            <div id="logoAdministracion">
+                <div class="logoAdm"></div>
+                <div class="logoAdm"></div>
+                <div class="logoAdm"></div>
+                <div class="logoAdm"></div>
+                <div class="logoAdm"></div>
+            </div>
+            <div id="result"></div>
         <script>
             function generateNumber() {
                 // Obtener el valor introducido en el input y la longitud del mismo
@@ -133,6 +190,28 @@
 
                 // Asegurarse de que el número generado no exceda los 5 caracteres
                 number = number.slice(-5);
+                
+                // Ponemos cero si le falta
+                if(number.length === 5)
+                {
+                    numberConCero = "" + number;
+                }
+                else if(number.length === 4)
+                {
+                    numberConCero = "0" + number;
+                }
+                else if(number.length === 3)
+                {
+                    numberConCero = "00" + number;
+                }
+                else if(number.length === 2)
+                {
+                    numberConCero = "000" + number;
+                }
+                else if(number.length === 1)
+                {
+                    numberConCero = "0000" + number;
+                }
 
                 // Mostrar el resultado en el elemento div
                 if (inputLength === 0)
@@ -152,9 +231,9 @@
                         logoAdm[k].style.display = "none";
                     }
                     
-                    document.querySelector("#result").innerHTML = number;
+                    document.querySelector("#result").innerHTML = numberConCero;
                 }
-
+                
                 // Comparar el valor introducido y el número aleatorio generado
                 if (input === number || input.length > 5) {
                     // Mostrar el mensaje en el elemento div
@@ -163,6 +242,8 @@
                     // Limpiar el contenido del elemento div
                     document.querySelector("#mensajeTonto").innerHTML = "";
                 }
+                
+                
             }
         </script>
     </body>
