@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Loteria</title>
+        <style>
+            
+            *
+            {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+            
+            html
+            {
+                display: flex;
+            }
+
+            body {
+                background-color:  #ddbb8a;
+                margin-left: auto;
+                margin-right: auto;
+                width: 900px;
+            }
+            
+            h3
+            {
+                color: white;
+                margin-top: 50px;
+                margin-bottom: 50px;
+                width: 700px;
+                margin-left: auto;
+                margin-right: auto;
+                text-align: center;
+                font-size: 40px;
+                font-family: 'letraPalabras';
+            }
+            h4
+            {
+                margin-bottom: 40px;
+                color: white;
+                width: 700px;
+                margin-left: auto;
+                margin-right: auto;
+                text-align: center;
+                font-size: 40px;
+                font-family: 'letraPalabras';
+            }
+            
+            .centrado
+            {
+                text-align: center;
+                align-content: center;
+                align-items: center;
+                margin-left: auto;
+                margin-right: auto;
+                vertical-align: central;
+                margin-top: 100px;
+            }
+
+            /* Clase para el contenedor de input y div con el número generado */
+            .box {
+                background-color: darkblue;
+                border: 10px #fffc00 solid;
+                border-radius: 10px;
+                display: inline-block;
+                margin-top: 30px;
+                padding: 20px;
+                width: 900px;
+                height: 1800px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            #result {
+                position: relative;
+                bottom: 1560px;
+                left: 328px;
+                height: 30px;
+                display: inline-block;
+                align-items: center;
+                justify-content: center;
+                font-size: 80px;
+                color: black;
+                letter-spacing: 17px;
+                font-variant-numeric: tabular-nums;
+                z-index: 999;
+                font-family: 'letraNumeros';
+            }
+
+            #mensajeTonto {
+                align-items: center;
+                justify-content: center;
+                font-size: 60px;
+                margin-top: 30px;
+                color: white;
+                
+            }
+            
+            #graficos
+            {
+                display: inline-block;
+            }
+            
+            .grafico
+            {
+                display: inline-block;
+                margin: 20px;
+            }
+            
+            #volver
+            {
+                width: 600px;
+                height: 100px;
+                font-family: 'letraPalabras';
+                font-size: 50px;
+                border-radius: 10px;
+                text-decoration: none;
+                color: black;
+                background-color: #66ccff;
+                padding: 25px;
+                position: relative;
+                top: 50px;
+            }
+            
+            #volver:active
+            {
+                background-color: #006699;
+                color: yellow;
+            }
+
+
+            /* Estilos para el input */
+            input[type="number"] {
+                width: 250px;
+                height: 100px;
+                border-radius: 5px;
+                border-radius: 10px;
+                font-size: 70px;
+                text-align: center;
+            }
+            
+            @media (max-width: 450px) {
+                .box {
+                    width: 100%;
+                    max-width: none;
+                }
+
+                #result {
+                    font-size: 30px;
+                }
+
+                #mensajeTonto {
+                    font-size: 18px;
+                }
+            }
+            
+            @font-face {
+                font-family: 'letraPalabras';
+                src: url('KeepCalm-Medium.ttf') format('truetype');
+            }
+            
+            @font-face {
+                font-family: 'letraNumeros';
+                src: url('LEMONMILK-Medium.otf') format('truetype');
+            }
+
+        </style>
+    </head>
+    <body>
+            <!-- Añadir la clase box al contenedor del input y del div -->
+            <div class="box">
+                <div class="centrado">
+                    <h4>Graficos de estudio sobre los numeros mas tocados en la historia por terminacion</h4>
+                    <div id="graficos">
+                        <div class="grafico">
+                            <iframe width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSaaYAJGKRQZTDLE9t6aTYBHbBN_hO3H5Z57LAKeBMK9khS4iWSnq4cP0VMVJv_AynBazobXp4xXXnN/pubchart?oid=1944915151&amp;format=interactive"></iframe>
+                        </div>
+                        <div class="grafico">
+                            <iframe width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSaaYAJGKRQZTDLE9t6aTYBHbBN_hO3H5Z57LAKeBMK9khS4iWSnq4cP0VMVJv_AynBazobXp4xXXnN/pubchart?oid=215982078&amp;format=interactive"></iframe>
+                        </div>
+                        <div class="grafico">
+                            <iframe width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSaaYAJGKRQZTDLE9t6aTYBHbBN_hO3H5Z57LAKeBMK9khS4iWSnq4cP0VMVJv_AynBazobXp4xXXnN/pubchart?oid=60566148&amp;format=interactive"></iframe>
+                        </div>
+                    </div>
+                    <a id="volver" href="Loteria.html">Volver al Generador</a>
+                </div>
+            </div>
+    </body>
+</html>
