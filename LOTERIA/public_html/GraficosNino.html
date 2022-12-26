@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Loteria</title>
+        <style>
+
+            *
+            {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+
+            html
+            {
+                display: flex;
+            }
+
+            body {
+                background-color:  #ddbb8a;
+                margin-left: auto;
+                margin-right: auto;
+                width: 900px;
+            }
+
+            h3
+            {
+                color: white;
+                margin-top: 50px;
+                margin-bottom: 50px;
+                width: 700px;
+                margin-left: auto;
+                margin-right: auto;
+                text-align: center;
+                font-size: 40px;
+                font-family: 'letraPalabras';
+            }
+            h4
+            {
+                margin-bottom: 40px;
+                color: white;
+                width: 700px;
+                margin-left: auto;
+                margin-right: auto;
+                text-align: center;
+                font-size: 40px;
+                font-family: 'letraPalabras';
+            }
+
+            .centrado
+            {
+                text-align: center;
+                align-content: center;
+                align-items: center;
+                margin-left: auto;
+                margin-right: auto;
+                vertical-align: central;
+                margin-top: 60px;
+            }
+
+            /* Clase para el contenedor de input y div con el número generado */
+            .box {
+                background-color: #990033;
+                border: 10px #fffc00 solid;
+                border-radius: 10px;
+                display: inline-block;
+                margin-top: 30px;
+                padding: 20px;
+                width: 900px;
+                height: 1800px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            #result {
+                position: relative;
+                bottom: 1560px;
+                left: 328px;
+                height: 30px;
+                display: inline-block;
+                align-items: center;
+                justify-content: center;
+                font-size: 80px;
+                color: black;
+                letter-spacing: 17px;
+                font-variant-numeric: tabular-nums;
+                z-index: 999;
+                font-family: 'letraNumeros';
+            }
+
+            #mensajeTonto {
+                align-items: center;
+                justify-content: center;
+                font-size: 60px;
+                margin-top: 30px;
+                color: white;
+
+            }
+
+            #graficos
+            {
+                display: inline-block;
+            }
+
+            .grafico
+            {
+                display: inline-block;
+                margin: 20px;
+            }
+
+            #volver
+            {
+                width: 600px;
+                height: 100px;
+                font-family: 'letraPalabras';
+                font-size: 50px;
+                border-radius: 10px;
+                text-decoration: none;
+                color: black;
+                background-color: #ff6666;
+                padding: 25px;
+                position: relative;
+                margin: 15px;
+
+            }
+
+            #otraLoteria
+            {
+                display: grid;
+                font-family: 'letraPalabras';
+                font-size: 50px;
+                border-radius: 10px;
+                text-decoration: none;
+                color: black;
+                background-color: #66ccff;
+                padding: 15px;
+                position: relative;
+                bottom: 165px;
+                right: 225px;
+                width: 150px;
+                height: 150px;
+            }
+
+            #otraLoteria:active
+            {
+                background-color: #006699;
+                content: url(arbolNavidadAmarillo.png);
+            }
+
+            #volver:active
+            {
+                background-color: #660033;
+                color: yellow;
+            }
+
+            #cajaBotones
+            {
+                display: inline-grid;
+                position: relative;
+                top: 15px;
+                left: 120px;
+            }
+
+            /* Estilos para el input */
+            input[type="number"] {
+                width: 250px;
+                height: 100px;
+                border-radius: 5px;
+                border-radius: 10px;
+                font-size: 70px;
+                text-align: center;
+            }
+
+            @media (max-width: 450px) {
+                .box {
+                    width: 100%;
+                    max-width: none;
+                }
+
+                #result {
+                    font-size: 30px;
+                }
+
+                #mensajeTonto {
+                    font-size: 18px;
+                }
+            }
+
+            @font-face {
+                font-family: 'letraPalabras';
+                src: url('KeepCalm-Medium.ttf') format('truetype');
+            }
+
+            @font-face {
+                font-family: 'letraNumeros';
+                src: url('LEMONMILK-Medium.otf') format('truetype');
+            }
+
+        </style>
+    </head>
+    <body>
+        <!-- Añadir la clase box al contenedor del input y del div -->
+        <div class="box">
+            <div class="centrado">
+                <h4>Graficos de estudio sobre los numeros mas tocados en la historia por terminacion</h4>
+                <div id="graficos">
+                    <div class="grafico">
+                        <iframe width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSRPHmEfBLDh8qJ0pOes9XVXCQe7Ym05X0eTHOyuQgFH3D0llxyDhhhDjAqhCiToCl77GA6w0qWVAkq/pubchart?oid=1944915151&amp;format=interactive"></iframe>
+                    </div>
+                    <div class="grafico">
+                        <iframe width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSRPHmEfBLDh8qJ0pOes9XVXCQe7Ym05X0eTHOyuQgFH3D0llxyDhhhDjAqhCiToCl77GA6w0qWVAkq/pubchart?oid=215982078&amp;format=interactive"></iframe>
+                    </div>
+                    <div class="grafico">
+                        <iframe width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSRPHmEfBLDh8qJ0pOes9XVXCQe7Ym05X0eTHOyuQgFH3D0llxyDhhhDjAqhCiToCl77GA6w0qWVAkq/pubchart?oid=60566148&amp;format=interactive"></iframe>
+                    </div>
+                </div>
+                <div id="cajaBotones">
+                    <a id="volver" href="GraficosNino_2.html">Pagina 2 >></a>
+                    <a id="volver" href="LoteriaNino.html">Volver al Generador</a>
+                    <a id="otraLoteria" href="GraficosNavidad.html"><img src="arbolNavidad.png" width="117" height="117" alt="alt"/></a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
