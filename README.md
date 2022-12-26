@@ -1,3 +1,3 @@
 # LoteriaNavidad
 
-https://xdgtweb.github.io/LoteriaNavidad/Loteria.html
+https://xdgtweb.github.io/LOTERIA/public_html/LoteriaNavidad/LoteriaNavidad.html
