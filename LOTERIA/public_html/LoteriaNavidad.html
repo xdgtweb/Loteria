@@ -1,221 +1,217 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Loteria</title>
-        <style>
-            
-            *
-            {
-                padding: 0;
-                margin: 0;
-                box-sizing: border-box;
-            }
-            
-            html
-            {
-                display: flex;
-            }
 
-            body {
-                background-color:  #ddbb8a;
-                margin-left: auto;
-                margin-right: auto;
-                width: 900px;
-            }
-            
-            h3
-            {
+<head>
+    <title>Lotería</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #ddbb8a;
+            margin: 0 auto;
+            width: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        h3 {
+            color: white;
+            margin: 10px 0;
+            text-align: center;
+            font-size: 1.5rem;
+            font-family: 'letraPalabras';
+        }
+
+        h4 {
+            color: white;
+            margin: 10px 0;
+            text-align: center;
+            font-size: 3rem;
+            font-family: 'letraPalabras';
+        }
+
+        .centrado {
+            text-align: center;
+            flex-direction: column;
+        }
+
+        .box {
+            background-color: darkblue;
+            border: 5px #fffc00 solid;
+            border-radius: 10px;
+            padding: 20px;
+            width: 96%;
+            max-width: 950px;
+            margin: 10px auto;
+            height: calc(100vh - 30px);
+            position: relative;
+            /* Agregado para posicionar elementos hijos */
+        }
+
+        #boleto-logo-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            /* Centra el contenido */
+        }
+
+
+        #logoAdministracion {
+            position: absolute;
+            top: 9%;
+            left: 57%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+            gap: 3%;
+            width: 68%;
+            padding: 5px;
+        }
+
+
+        .logoAdm {
+            width: 10%;
+            min-width: 30px;
+            height: auto;
+            content: url(logoAdministracionLoteria.png);
+        }
+
+        #boleto {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 20px 0 50px 0;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            /* Centra la imagen */
+        }
+
+
+        #result {
+            /* margin: 20px auto; */
+            font-size: 5rem;
+            color: black;
+            letter-spacing: 17px;
+            font-family: 'letraNumeros';
+            position: absolute;
+            top: 16%;
+            left: 58%;
+            transform: translate(-50%, -50%);
+            font-variant-numeric: tabular-nums;
+        }
+
+        #mensajeTonto {
+            font-size: 3.5rem;
+            color: white;
+            margin-top: 15px;
+        }
+
+        input[type="number"] {
+            width: 30%;
+            height: 60px;
+            font-size: 3rem;
+            text-align: center;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+
+        a {
+            display: inline-block;
+            text-align: center;
+            margin: 10px 5px;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            color: black;
+        }
+
+        #botonera {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            /* Para posicionar dentro de .box */
+            bottom: 10px;
+            /* Espacio desde la parte inferior */
+            left: 50%;
+            /* Centrar horizontalmente */
+            transform: translateX(-50%);
+            /* Ajustar el centrado */
+            width: 100%;
+            /* Opcional para que ocupe el ancho completo */
+        }
+
+        #botonera #volver {
+            background-color: #66ccff;
+            font-family: 'letraPalabras';
+        }
+
+        #botonera #donar
+        {
+            background-color: #fff566;
+            font-family: 'letraPalabras';
+        }
+
+        #volver:active {
+            background-color: #006699;
+            color: yellow;
+        }
+
+        #otraLoteria {
+            background-color: #ff6666;
+            font-family: 'letraPalabras';
+        }
+
+        #otraLoteria:active {
+            background-color: #660033;
+        }
+
+        @media (max-width: 768px) {
+
+            h3 {
                 color: white;
-                margin-top: 50px;
-                margin-bottom: 50px;
-                width: 700px;
-                margin-left: auto;
-                margin-right: auto;
+                margin: 10px 0;
                 text-align: center;
-                font-size: 40px;
+                font-size: 1rem;
                 font-family: 'letraPalabras';
             }
-            h4
-            {
-                margin-bottom: 40px;
+
+            h4 {
                 color: white;
-                width: 700px;
-                margin-left: auto;
-                margin-right: auto;
+                margin: 10px 0;
                 text-align: center;
-                font-size: 40px;
+                font-size: 2rem;
                 font-family: 'letraPalabras';
             }
-            
-            .centrado
-            {
-                text-align: center;
-                align-content: center;
-                align-items: center;
-                margin-left: auto;
-                margin-right: auto;
-                vertical-align: central;
-                margin-top: 60px;
-            }
 
-            /* Clase para el contenedor de input y div con el número generado */
-            .box {
-                background-color: darkblue;
-                border: 10px #fffc00 solid;
-                border-radius: 10px;
-                display: inline-block;
-                margin-top: 30px;
-                padding: 20px;
-                width: 900px;
-                height: 1800px;
-                margin-left: auto;
-                margin-right: auto;
-            }
+        }
 
-            #result {
-                position: relative;
-                bottom: 1600px;
-                left: 328px;
-                height: 30px;
-                display: inline-block;
-                align-items: center;
-                justify-content: center;
-                font-size: 80px;
-                color: black;
-                letter-spacing: 17px;
-                font-variant-numeric: tabular-nums;
-                z-index: 999;
-                font-family: 'letraNumeros';
-            }
+        @font-face {
+            font-family: 'letraPalabras';
+            src: url('KeepCalm-Medium.ttf') format('truetype');
+        }
 
-            #mensajeTonto {
-                align-items: center;
-                justify-content: center;
-                font-size: 60px;
-                margin-top: 30px;
-                color: white;
-                
-            }
-            
-            #boleto
-            {
-                border-radius: 10px;
-                width: 800px;
-                height: 450px;
-            }
-            
-            #logoAdministracion
-            {
-                display: inline-block;
-                position: relative;
-                z-index: 999;
-                bottom: 1570px;
-                left: 328px;
-                letter-spacing: 18px;
-            }
-            
-            .logoAdm
-            {
-                display: inline-block;
-                width: 53px; 
-                height: 60px;
-                content: url(logoAdministracionLoteria.png);
-            }
+        @font-face {
+            font-family: 'letraNumeros';
+            src: url('LEMONMILK-Medium.otf') format('truetype');
+        }
+    </style>
+</head>
 
-            /* Estilos para el input */
-            input[type="number"] {
-                width: 250px;
-                height: 100px;
-                border-radius: 5px;
-                border-radius: 10px;
-                font-size: 70px;
-                text-align: center;
-            }
-            
-            #volver
-            {
-                width: 600px;
-                height: 100px;
-                font-family: 'letraPalabras';
-                font-size: 50px;
-                border-radius: 10px;
-                text-decoration: none;
-                color: black;
-                background-color: #66ccff;
-                padding: 25px;
-                position: relative;
-                top: 50px;
-            }
-            
-            #otraLoteria
-            {
-                display: grid;
-                font-family: 'letraPalabras';
-                font-size: 50px;
-                border-radius: 10px;
-                text-decoration: none;
-                color: black;
-                background-color: #ff6666;
-                padding: 15px;
-                position: relative;
-                top: 570px;
-                right: 0px;
-                width: 150px;
-                height: 150px;
-            }
-            
-            #otraLoteria:active
-            {
-                background-color: #660033;
-                content: url(ninosAmarillo.png);
-            }
-            
-            #volver:active
-            {
-                background-color: #006699;
-                color: yellow;
-            }
-            
-            @media (max-width: 450px) {
-                .box {
-                    width: 100%;
-                    max-width: none;
-                }
-
-                #result {
-                    font-size: 30px;
-                }
-
-                #mensajeTonto {
-                    font-size: 18px;
-                }
-            }
-            
-            @font-face {
-                font-family: 'letraPalabras';
-                src: url('KeepCalm-Medium.ttf') format('truetype');
-            }
-            
-            @font-face {
-                font-family: 'letraNumeros';
-                src: url('LEMONMILK-Medium.otf') format('truetype');
-            }
-
-        </style>
-    </head>
-    <body>
-            <!-- Añadir la clase box al contenedor del input y del div -->
-            <div class="box">
-                <div class="centrado">
-                    <h4>Generador de Navidad</h4>
-                <img id="boleto" src="boletoNavidad.jpg" alt="boleto"/>
-                <h3>Introduce la terminacion que deseas mantener en el numero generado aleatoriamente</h3>
-                <input type="number" pattern="[0-9]*" maxlength="5" max="99999" oninput="generateNumber()">
-                <div id="mensajeTonto"></div>
-                <a id="volver" href="GraficosNavidad.html">Analisis</a>
-                <a id="otraLoteria" href="LoteriaNino.html"><img src="ninos.png" width="117" height="117" alt="alt"/></a>
-                </div>
-            </div>
+<body>
+    <div class="box">
+        <div class="centrado">
+            <h4>Generador de Navidad</h4>
+        </div>
+        <div id="boleto-logo-container">
             <div id="logoAdministracion">
                 <div class="logoAdm"></div>
                 <div class="logoAdm"></div>
@@ -224,75 +220,69 @@
                 <div class="logoAdm"></div>
             </div>
             <div id="result"></div>
-            
-            
-        <script>
-            function generateNumber() {
-                // Obtener el valor introducido en el input y la longitud del mismo
-                const input = document.querySelector("input").value;
-                const inputLength = input.length;
-                var logoAdm = document.querySelectorAll(".logoAdm");
+            <img id="boleto" src="boletoNavidad.jpg" alt="boleto" />
+        </div>
 
-                // Generar un número aleatorio y añadirle el valor introducido al final
-                let number = Math.floor(Math.random() * Math.pow(10, 5 - inputLength)) + input;
+        <div class="centrado">
+            <h3>Introduce la terminación que deseas mantener en el número generado aleatoriamente</h3>
+            <input type="number" pattern="[0-9]*" maxlength="5" max="99999" oninput="generateNumber()">
+            <div id="mensajeTonto"></div>
+        </div>
+        <div id="botonera">
+            <a id="volver" href="GraficosNavidad.html">Análisis</a>
+            <a id="otraLoteria" href="LoteriaNino.html">Otra Lotería</a>
+            <a id="donar" href="">Donar</a>
+        </div>
+    </div>
 
-                // Asegurarse de que el número generado no exceda los 5 caracteres
-                number = number.slice(-5);
-                
-                // Ponemos cero si le falta
-                if(number.length === 5)
-                {
-                    numberConCero = "" + number;
-                }
-                else if(number.length === 4)
-                {
-                    numberConCero = "0" + number;
-                }
-                else if(number.length === 3)
-                {
-                    numberConCero = "00" + number;
-                }
-                else if(number.length === 2)
-                {
-                    numberConCero = "000" + number;
-                }
-                else if(number.length === 1)
-                {
-                    numberConCero = "0000" + number;
-                }
+    <script>
+        function generateNumber() {
+            const input = document.querySelector("input").value;
+            const inputLength = input.length;
+            var logoAdm = document.querySelectorAll(".logoAdm");
 
-                // Mostrar el resultado en el elemento div
-                if (inputLength === 0)
-                {
+            let number = Math.floor(Math.random() * Math.pow(10, 5 - inputLength)) + input;
 
-                    for (var k = 0; k < logoAdm.length; k++) 
-                    {
-                        logoAdm[k].style.display = "inline-block";
-                    }
+            number = number.slice(-5);
 
-                    document.querySelector("#result").innerHTML = "";
-                } 
-                else
-                {
-                    for (var k = 0; k < logoAdm.length; k++) 
-                    {
-                        logoAdm[k].style.display = "none";
-                    }
-                    
-                    document.querySelector("#result").innerHTML = numberConCero;
-                }
-                
-                // Comparar el valor introducido y el número aleatorio generado
-                if (input === number || input.length > 5) {
-                    // Mostrar el mensaje en el elemento div
-                    document.querySelector("#mensajeTonto").innerHTML = "emmm... sabes que no tiene mucho sentido verdad?... XD";
-                } else {
-                    // Limpiar el contenido del elemento div
-                    document.querySelector("#mensajeTonto").innerHTML = "";
-                }
-                
-                
+            let numberConCero = number.padStart(5, "0");
+
+            if (inputLength === 0) {
+                logoAdm.forEach(logo => logo.style.display = "inline-block");
+                document.querySelector("#result").innerHTML = "";
+            } else {
+                logoAdm.forEach(logo => logo.style.display = "none");
+                document.querySelector("#result").innerHTML = numberConCero;
             }
-        </script>
-    </body>
+
+            let mensajeTonto = ""; // Variable para almacenar el mensaje
+            switch (true) {
+                case input.length > 9:
+                    mensajeTonto = "¡Se acabó! Ya no puedes introducir nada más por tonto.😡";
+                    document.querySelector("input").disabled = true; // Bloquea el input
+                    break;
+                case input.length > 8:
+                    mensajeTonto = "Con 1€ me conformo.🤑";
+                    break;
+                case input.length > 7:
+                    mensajeTonto = "Si si, el boton que tienes abajo de PayPal...☺️";
+                    break;
+                case input.length > 6:
+                    mensajeTonto = "Para aguntar estas tonterias podrias donar al menos...🤔";
+                    break;
+                case input.length > 5:
+                    mensajeTonto = "Seis cifras... Estás en un mundo de fantasía.🙃";
+                    break;
+                case input.length > 4:
+                    mensajeTonto = "¿Cinco cifras?, ¿en serio?.😅";
+                    break;
+                default:
+                    mensajeTonto = ""; // No mostramos ningún mensaje si todo está bien
+            }
+            document.querySelector("#mensajeTonto").innerHTML = mensajeTonto;
+        }
+
+    </script>
+</body>
+
 </html>
